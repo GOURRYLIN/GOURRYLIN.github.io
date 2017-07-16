@@ -30,9 +30,24 @@ languages:
   name: English
   proficiency: Limit
 programmingSkills:
+- Html5/Css3:
+  name: html5/css3
+  percentage: 70%
 - Javascript:
-  name: Java
+  name: Javascript
   percentage: 90%
+- Jequry:
+  name: jequry
+  percentage: 80%
+- vue:
+  name: vue
+  percentage: 60%
+- Angular:
+  name: angular
+  percentage: 60%
+- Node:
+  name: node
+  percentage: 30%
 - PHP:
   name: PHP
   percentage: 30%
