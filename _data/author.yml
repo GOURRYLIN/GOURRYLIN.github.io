@@ -30,12 +30,12 @@ languages:
   name: English
   proficiency: Limit
 programmingSkills:
-- Java:
+- Javascript:
   name: Java
   percentage: 90%
 - PHP:
   name: PHP
   percentage: 30%
-- Kotlin:
-  name: Kotlin
-  percentage: 70%
+- Java:
+  name: Java
+  percentage: 40%
