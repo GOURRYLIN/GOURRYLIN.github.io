@@ -1,7 +1,7 @@
 # Site settings
-title: Liu Yu
+title: GOURRYLIN'S BLOG
 description: Liu Yu
-favicon: /assets/img/avatar.JPG
+favicon: /assets/img/favicon.ico
 baseurl:
 url: https://gourrylin.github.io
 rss_url:
