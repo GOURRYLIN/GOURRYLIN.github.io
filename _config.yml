@@ -1,9 +1,9 @@
 # Site settings
-title: GOURRYLIN'S BLOG
+title: Rainloury'S BLOG
 description: Liu Yu
 favicon: /assets/img/favicon.ico
 baseurl:
-url: https://gourrylin.github.io
+url: https://rainloury.github.io
 rss_url:
 
 # Build settings
