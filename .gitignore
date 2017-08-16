@@ -1,5 +1,6 @@
 _site
 .sass-cache
 .idea
+.gitignore
 resumecard.iml
 /*.iml
