@@ -41,6 +41,7 @@ sudo rm -rf /usr/lib/php
 sudo rm -rf /usr/share/man/man*/php*
 //php删除不是很彻底，还有一些依赖包
 ```
+
 ## Step 3 安装Xcode和Homebrew
 
 MacOs比较好用的包管理器有Macports和Homebrew，两者各有利弊，在此不做赘述，选择Homebrew。
