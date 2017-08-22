@@ -1,7 +1,7 @@
 ---
 layout: post_layout
 title: MacOs重新配置apache和php
-author: Gourry
+author: Rainloury
 time: 2017年08月22日 星期二
 location: 上海
 pulished: true
@@ -89,8 +89,7 @@ DocumentRoot "/usr/local/var/www/htdocs"
 <Directory "/Users/your_user/sites">
 ```
 + 配置ServerName 你的网站名称，如果注释掉ServerName，默认注释掉了，重启apache会报错。
-
-+修改用户和用户组，改为你的用户名your_user 和 staff，避免访问权限问题。
++ 修改用户和用户组，改为你的用户名your_user 和 staff，避免访问权限问题。
 
 ```
 User your_user
@@ -100,7 +99,7 @@ Group staff
 ```
 LoadModule rewrite_module libexec/mod_rewrite.so
 ```
-+ 开启服务器反向代理模块
++ 开启apache服务器反向代理模块
 ```
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
@@ -112,6 +111,12 @@ PHP可同时安装多个版本php5.4,php5.5,php5.6,php7.1，且能在不同版�
 ```
 brew tap homebrew/php
 ```
++ 更新软件仓库
+
+```
+brew update
+```
+
 + 安装php
 ```
 //--with-httpd24参数来编译安装 PHP 以及使 Apache 支持 PHP 所需要的一些模块
@@ -122,8 +127,8 @@ brew unlink php56
 brew install php71 --with-httpd24
 ```
 + 开启apache配置里对应的php版本模块，不需要的模块注释掉
-```sudo vim usr/local/etc/apache2/2.4/httpd.conf
-
+```
+sudo vim usr/local/etc/apache2/2.4/httpd.conf
 ```
 ```
 LoadModule php5_module        /usr/local/Cellar/php55/5.5.38_11/libexec/apache2/libphp5.so
@@ -132,7 +137,8 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 ```
 通过brew unlink php版本号 和 brew link php版本号,来切换php版本,同时注释掉apahce配置中unlink的php模块和开启link对应的php模块。
 
-** 配置PHP**
+**配置PHP**s
+
 + 主目录索引文件配置
 ```
 <IfModule dir_module>
@@ -160,7 +166,7 @@ phpinfo();
 sudo vim /usr/local/etc/apache2/2.4/httpd.conf
 ```
 
-+开启apache虚拟主机模块功能
++ 开启apache虚拟主机模块功能
 
 ```
 LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
