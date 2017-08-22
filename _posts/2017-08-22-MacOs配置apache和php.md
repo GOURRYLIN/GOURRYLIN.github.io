@@ -23,7 +23,9 @@ System Integrity Protection  苹果的**系统集成保护**，关闭System Inte
 ## Step 2 删除系统内置apache和php
 
 因系统内置的apache和php模块和依赖不全，更新麻烦且容易出问题，所以果断删除，此删除方法虽然不彻底，但已不影响重新安装和使用。
+
 + 删除apache
+
 ```
 sudo apachectl stop
 sudo rm -rf /etc/apache2
@@ -31,12 +33,13 @@ sudo rm -rf /usr/include/apahce2
 sudo rm -rf /usr/libexec/apache2
 ```
 + 删除php
+
 ```
 sudo rm -rf /usr/php
 sudo rm -rf /usr/bin/php
-sudo rm -rf /usr/bin/php-config 
-sudo rm -rf /usr/bin/phpize 
-sudo rm -rf /usr/include/php 
+sudo rm -rf /usr/bin/php-config
+sudo rm -rf /usr/bin/phpize
+sudo rm -rf /usr/include/php
 sudo rm -rf /usr/lib/php   
 sudo rm -rf /usr/share/man/man*/php*
 //php删除不是很彻底，还有一些依赖包
@@ -57,6 +60,7 @@ $ brew doctor
 ## Step 4 安装apache
 
 + 添加apache软件仓库
+
 ```
 brew tap homebrew/apache
 brew tap homebrew/apache
@@ -68,6 +72,7 @@ brew tap homebrew/apache
 brew update
 ```
 + 安装apache，apache服务名为httpd
+
 ```
 brew install httpd24 --with-privileged-ports --with-http2
 ```
@@ -93,6 +98,7 @@ sudo vim /usr/local/etc/apache2/2.4/httpd.conf
 DocumentRoot "/usr/local/var/www/htdocs"
 ```
 + 修改项目文件夹目录,与DocumentRoot保持一致
+
 ```
 <Directory "/Users/your_user/sites">
 ```
@@ -105,6 +111,7 @@ Group staff
 ```
 
 + 开启AllowOverride
+
 ```
 # AllowOverride controls what directives may be placed in .htaccess files.
 # It can be "All", "None", or any combination of the keywords:
@@ -114,10 +121,12 @@ AllowOverride All
 ```
 
 + 开启url的rewrite功能，开启此模块
+
 ```
 LoadModule rewrite_module libexec/mod_rewrite.so
 ```
 + 开启apache服务器反向代理模块
+
 ```
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
@@ -126,16 +135,19 @@ LoadModule proxy_http_module modules/mod_proxy_http.so
 
 PHP可同时安装多个版本php5.4,php5.5,php5.6,php7.1，且能在不同版本之间切换,安装另一个版本前，先 brew unlink php当前版本，然后 brew install php版本号。通过php -v 参看当前系统启用的php版本。
 + 安装php的代码仓库
+
 ```
 brew tap homebrew/php
 ```
 + 更新软件仓库
+
 
 ```
 brew update
 ```
 
 + 安装php
+
 ```
 //--with-httpd24参数来编译安装 PHP 以及使 Apache 支持 PHP 所需要的一些模块
 brew install php55 --with-httpd24
@@ -145,6 +157,7 @@ brew unlink php56
 brew install php71 --with-httpd24
 ```
 + 开启apache配置里对应的php版本模块，不需要的模块注释掉
+
 ```
 sudo vim usr/local/etc/apache2/2.4/httpd.conf
 ```
@@ -159,6 +172,7 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 **配置PHP**
 
 + 主目录索引文件配置
+
 ```
 <IfModule dir_module>
     DirectoryIndex index.php index.html
@@ -170,6 +184,7 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 ```
 + 验证php安装结果
   在根目录下新建info.php,输入如下代码
+
 ```
 <?php
 phpinfo();
@@ -192,6 +207,7 @@ LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 + 修改虚拟主机配置文件,一个VirtualHost配置对应一个服务站点。
+
 ```
 sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
 ```
@@ -204,25 +220,25 @@ sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
         ErrorLog "/private/var/log/apache2/dummy-host2.example.com-error_log"
         CustomLog "/private/var/log/apache2/dummy-host2.example.com-access_log" common
         <Directory "/Users/gourry/Documents/mysites/boxuegu">
-    
+
              # 是否来显示文件根目录的目录列表
              Options Indexes FollowSymLinks MultiViews
              MultiviewsMatch Any
              # 根目录下的.htaccess起rewrite作用,All or None
              AllowOverride All
-    
+
              Order Allow,Deny
              Allow from all
-    
+
              Require all granted
-    
+
              # AllowOverride None 时设置，不希望根目录下有.htaccess文件时可把rewrite功能写进来
              # RewriteEngine on
                         # RewriteCond %{REQUEST_FILENAME} !-d
              # RewriteCond %{REQUEST_FILENAME} !-f
              # RewriteRule ^(.*)$ index.php/$1 [QSA,PT,L]
          </Directory>
-    
+
         <Proxy *>
                 Order deny,allow
                 Allow from all
