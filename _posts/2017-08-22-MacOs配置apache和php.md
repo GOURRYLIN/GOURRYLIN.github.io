@@ -95,6 +95,15 @@ DocumentRoot "/usr/local/var/www/htdocs"
 User your_user
 Group staff
 ```
++ 开启AllowOverride
+```
+# AllowOverride controls what directives may be placed in .htaccess files.
+# It can be "All", "None", or any combination of the keywords:
+#   AllowOverride FileInfo AuthConfig Limit
+#
+AllowOverride All
+```
+
 + 开启url的rewrite功能，开启此模块
 ```
 LoadModule rewrite_module libexec/mod_rewrite.so
@@ -137,7 +146,7 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 ```
 通过brew unlink php版本号 和 brew link php版本号,来切换php版本,同时注释掉apahce配置中unlink的php模块和开启link对应的php模块。
 
-**配置PHP**s
+**配置PHP**
 
 + 主目录索引文件配置
 ```
