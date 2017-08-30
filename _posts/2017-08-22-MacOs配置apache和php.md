@@ -247,3 +247,6 @@ sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
         ProxyPass /api http://api.botue.com/v8
 </VirtualHost>
 ```
+
+## Step 7 安装mysql数据库
+
