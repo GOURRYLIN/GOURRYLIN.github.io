@@ -63,7 +63,6 @@ $ brew doctor
 
 ```
 brew tap homebrew/apache
-brew tap homebrew/apache
 ```
 
 + 更新软件仓库
@@ -140,7 +139,6 @@ PHP可同时安装多个版本php5.4,php5.5,php5.6,php7.1，且能在不同版�
 brew tap homebrew/php
 ```
 + 更新软件仓库
-
 
 ```
 brew update
@@ -249,4 +247,3 @@ sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
 ```
 
 ## Step 7 安装mysql数据库
-
