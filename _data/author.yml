@@ -7,12 +7,12 @@ github: Rainloury
 gavatar: /assets/img/avatar.JPG
 workHistory:
 - work1:
-  company: 南京天方市政工程有限公司
-  location: 中国, 宜昌
-  title: 质检员 测量员
-  started: 2013
-  duration: (2013.6 - 2015.3)
-  description: 日常施工组织和质量检查
+  company: 无锡文思海辉信息技术有限公司上海分公司
+  location: 中国, 上海
+  title: 高级设计开发工程师
+  started: 2017
+  duration: (2017.10 - 至今)
+  description: web前端开发
 
 educationHistory:
 - education1:
