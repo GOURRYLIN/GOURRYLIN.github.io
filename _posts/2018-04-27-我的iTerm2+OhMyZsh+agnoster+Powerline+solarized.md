@@ -39,3 +39,22 @@ cd fonts
 ./install.sh
 ```
 然后到 iterm2 配置，设置字体为Roboto Mono for Powerline
+
+## 配置vim
++ git下Solarized 的源码
+git clone git://github.com/altercation/solarized.git
+
++ 进入文件夹
+cd solarized/vim-colors-solarized/colors
+
++ 下面可能要管理员权限
+sudo mkdir -p ~/.vim/colors
+sudo cp solarized.vim ~/.vim/colors/
+
++ 创建.vimrc文件
+sudo vim ~/.vimrc
+
++ 把下面这三行复制进去
+syntax enable
+set background=dark
+colorscheme solarized
