@@ -4,12 +4,12 @@ title: macbook pro配置lamp服务器解决办法
 time: 2017年08月15日 星期一
 location: 上海
 pulished: true
-excerpt_separator: "```"
+excerpt_separator: '```'
 ---
 
-###  mac os上自带了apache和php，无需另外下载，简单配置如下
+### mac os 上自带了 apache 和 php，无需另外下载，简单配置如下
 
-+ 终端输入
+- 终端输入
 
   ```
   sudo vim /etc/apache2/httpd.conf
@@ -17,25 +17,25 @@ excerpt_separator: "```"
 
   \#LoadModule php5_module libexec/apache2/libphp5.so
 
-  去掉#解开注释，让apache2关联php5
+  去掉#解开注释，让 apache2 关联 php5
 
-+ 重启apache
+- 重启 apache
 
   ```
   sudo apachectl restart
   ```
 
-+ 访问apache默认页面，如果出现表示配置成功
+- 访问 apache 默认页面，如果出现表示配置成功
 
   浏览器地址栏输入：http://localhost/
 
-### 配置Mysql
+### 配置 Mysql
 
-+ 下载mysql的dmg安装包，下载地址https://dev.mysql.com/downloads/mysql/
+- 下载 mysql 的 dmg 安装包，下载地址https://dev.mysql.com/downloads/mysql/
 
-+ 默认用户名：root，安装会随机生成密码newpass的弹出框，复制密码以备后用，也可在右上角通知处再次查看
+- 默认用户名：root，安装会随机生成密码 newpass 的弹出框，复制密码以备后用，也可在右上角通知处再次查看
 
-+ 登录mysql数据库
+- 登录 mysql 数据库
 
   ```
   mysql -uroot -p
@@ -45,32 +45,32 @@ excerpt_separator: "```"
   newpass	//输入随机生成的密码
   ```
 
-+ 修改root密码:root
+- 修改 root 密码:root
 
   ```
   mysql -uroot password root
   ```
 
-### 配置phpMyAdmin管理mysql数据库
+### 配置 phpMyAdmin 管理 mysql 数据库
 
-  + 下载phpMyAdmin，下载地址：http://www.phpmyadmin.net/home_page/downloads.php
+- 下载 phpMyAdmin，下载地址：http://www.phpmyadmin.net/home_page/downloads.php
 
-  + 解压到/Library/WebServer/Documents/，重命名文件夹名为phpMyAdmin
+- 解压到/Library/WebServer/Documents/，重命名文件夹名为 phpMyAdmin
 
-  + 在phpMyAdmin目录命令行输入
+- 在 phpMyAdmin 目录命令行输入
 
-    ```
-    cp config.sample.inc.php config.inc.php  
-    vim config.inc.php 
-    ```
+  ```
+  cp config.sample.inc.php config.inc.php
+  vim config.inc.php
+  ```
 
-    修改phpMyAdmin配置文件与mysql数据库关联起来
+  修改 phpMyAdmin 配置文件与 mysql 数据库关联起来
 
-    ```
-    $cfg['blowfish_secret'] = '';//用于Cookie加密，随意的长字符串  
-    $cfg['Servers'][$i]['host'] = '127.0.0.1';//MySQL守护程序做了IP绑定  
-    ```
+  ```
+  $cfg['blowfish_secret'] = '';//用于Cookie加密，随意的长字符串
+  $cfg['Servers'][$i]['host'] = '127.0.0.1';//MySQL守护程序做了IP绑定
+  ```
 
-现在可以在浏览器中输入URL：http://localhost/phpmyadmin/
+现在可以在浏览器中输入 URL：http://localhost/phpmyadmin/
 
-通过mysql的dmg包安装会在偏好设置中配置mysql，可以快捷启动或是关闭
+通过 mysql 的 dmg 包安装会在偏好设置中配置 mysql，可以快捷启动或是关闭

@@ -4,21 +4,25 @@
 
 ## zsh
 
-homebrew 安装zsh  
+homebrew 安装 zsh  
 brew install zsh zsh-completions
 
 ## oh my zsh
+
 Oh My Zsh 是基于 zsh 的一个扩展工具集，它提供了丰富的扩展功能
 
 via curl
+
 ```
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
+
 via wget
 
 ```
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
+
 可以看看它的默认主题：
 
 ls ~/.oh-my-zsh/themes
@@ -38,23 +42,25 @@ git clone git@github.com:powerline/fonts.git
 cd fonts
 ./install.sh
 ```
-然后到 iterm2 配置，设置字体为Roboto Mono for Powerline
 
-## 配置vim
-+ git下Solarized 的源码
-git clone git://github.com/altercation/solarized.git
+然后到 iterm2 配置，设置字体为 Roboto Mono for Powerline
 
-+ 进入文件夹
-cd solarized/vim-colors-solarized/colors
+## 配置 vim
 
-+ 下面可能要管理员权限
-sudo mkdir -p ~/.vim/colors
-sudo cp solarized.vim ~/.vim/colors/
+- git 下 Solarized 的源码
+  git clone git://github.com/altercation/solarized.git
 
-+ 创建.vimrc文件
-sudo vim ~/.vimrc
+- 进入文件夹
+  cd solarized/vim-colors-solarized/colors
 
-+ 把下面这三行复制进去
-syntax enable
-set background=dark
-colorscheme solarized
+- 下面可能要管理员权限
+  sudo mkdir -p ~/.vim/colors
+  sudo cp solarized.vim ~/.vim/colors/
+
+- 创建.vimrc 文件
+  sudo vim ~/.vimrc
+
+- 把下面这三行复制进去
+  syntax enable
+  set background=dark
+  colorscheme solarized
