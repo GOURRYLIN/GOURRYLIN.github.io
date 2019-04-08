@@ -1,3 +1,12 @@
+---
+layout: post_layout
+title: Mac 终端配置
+time: 2018年04月27日
+location: 上海
+published: true
+excerpt_separator: '```'
+---
+
 ## iTerm2
 
 官网地址：http://iterm2.com/
@@ -23,6 +32,8 @@ via wget
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
+## agnoster
+
 可以看看它的默认主题：
 
 ls ~/.oh-my-zsh/themes
@@ -35,7 +46,7 @@ vim ~/.zshrc
 
 然后把里面 ZSH_THEME 的值改为 ZSH_THEME="agnoster"，保存退出
 
-## Powerline
+## powerline
 
 ```
 git clone git@github.com:powerline/fonts.git
@@ -45,7 +56,7 @@ cd fonts
 
 然后到 iterm2 配置，设置字体为 Roboto Mono for Powerline
 
-## 配置 vim
+## vim config
 
 - git 下 Solarized 的源码
   git clone git://github.com/altercation/solarized.git

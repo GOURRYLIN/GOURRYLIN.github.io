@@ -1,10 +1,10 @@
 ---
 layout: post_layout
-title: MacOs重新配置apache和php
+title: macOS 重新配置 apache 和 php
 author: Rainloury
 time: 2017年08月22日 星期二
 location: 上海
-pulished: true
+published: true
 excerpt_separator: '```'
 ---
 
@@ -48,7 +48,7 @@ sudo rm -rf /usr/share/man/man*/php*
 
 ## Step 3 安装 Xcode 和 Homebrew
 
-MacOs 比较好用的包管理器有 Macports 和 Homebrew，两者各有利弊，在此不做赘述，选择 Homebrew。
+macOS 比较好用的包管理器有 Macports 和 Homebrew，两者各有利弊，在此不做赘述，选择 Homebrew。
 安装 Xcode，因 Homebrew 是源码编译安装软件，安装 Xcode 内置了 command line tools,增添了编译所需的库，减少编译安装软件的错误。
 
 ```
@@ -264,5 +264,3 @@ sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
         ProxyPass /api http://api.botue.com/v8
 </VirtualHost>
 ```
-
-## Step 7 安装 mysql 数据库

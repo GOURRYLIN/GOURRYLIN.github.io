@@ -3,7 +3,7 @@ layout: post_layout
 title: Jekyll语法高亮问题
 time: 2017年07月20日 星期四
 location: 上海
-pulished: true
+published: true
 excerpt_separator: '#'
 ---
 
