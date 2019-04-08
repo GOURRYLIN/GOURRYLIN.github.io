@@ -51,7 +51,7 @@ sudo rm -rf /usr/share/man/man*/php*
 macOS 比较好用的包管理器有 Macports 和 Homebrew，两者各有利弊，在此不做赘述，选择 Homebrew。
 安装 Xcode，因 Homebrew 是源码编译安装软件，安装 Xcode 内置了 command line tools,增添了编译所需的库，减少编译安装软件的错误。
 
-```
+```bash
 //安装Homebrew
 $ ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 //检查安装是否成功，返回版本信息表示安装成功
@@ -64,19 +64,19 @@ $ brew doctor
 
 - 添加 apache 软件仓库
 
-```
+```bash
 brew tap homebrew/apache
 ```
 
 - 更新软件仓库
 
-```
+```bash
 brew update
 ```
 
 - 安装 apache，apache 服务名为 httpd
 
-```
+```bash
 brew install httpd24 --with-privileged-ports --with-http2
 ```
 
@@ -84,7 +84,7 @@ brew install httpd24 --with-privileged-ports --with-http2
 
 - 重启 apache
 
-```
+```bash
 sudo apachectl restart
 ```
 
@@ -94,33 +94,33 @@ sudo apachectl restart
 
 - 修改配置文件
 
-```
+```bash
 sudo vim /usr/local/etc/apache2/2.4/httpd.conf
 ```
 
 - 修改 DocumentRoot 网站根目录
 
-```
+```bash
 DocumentRoot "/usr/local/var/www/htdocs"
 ```
 
 - 修改项目文件夹目录,与 DocumentRoot 保持一致
 
-```
+```bash
 <Directory "/Users/your_user/sites">
 ```
 
 - 配置 ServerName 你的网站名称，如果注释掉 ServerName，默认注释掉了，重启 apache 会报错。
 - 修改用户和用户组，改为你的用户名 your_user 和 staff，避免访问权限问题。
 
-```
+```bash
 User your_user
 Group staff
 ```
 
 - 开启 AllowOverride
 
-```
+```bash
 # AllowOverride controls what directives may be placed in .htaccess files.
 # It can be "All", "None", or any combination of the keywords:
 #   AllowOverride FileInfo AuthConfig Limit
@@ -130,13 +130,13 @@ AllowOverride All
 
 - 开启 url 的 rewrite 功能，开启此模块
 
-```
+```bash
 LoadModule rewrite_module libexec/mod_rewrite.so
 ```
 
 - 开启 apache 服务器反向代理模块
 
-```
+```bash
 LoadModule proxy_module modules/mod_proxy.so
 LoadModule proxy_http_module modules/mod_proxy_http.so
 ```
@@ -147,19 +147,19 @@ PHP 可同时安装多个版本 php5.4,php5.5,php5.6,php7.1，且能在不同版
 
 - 安装 php 的代码仓库
 
-```
+```bash
 brew tap homebrew/php
 ```
 
 - 更新软件仓库
 
-```
+```bash
 brew update
 ```
 
 - 安装 php
 
-```
+```bash
 //--with-httpd24参数来编译安装 PHP 以及使 Apache 支持 PHP 所需要的一些模块
 brew install php55 --with-httpd24
 brew unlink php55
@@ -170,11 +170,11 @@ brew install php71 --with-httpd24
 
 - 开启 apache 配置里对应的 php 版本模块，不需要的模块注释掉
 
-```
+```bash
 sudo vim usr/local/etc/apache2/2.4/httpd.conf
 ```
 
-```
+```bash
 LoadModule php5_module        /usr/local/Cellar/php55/5.5.38_11/libexec/apache2/libphp5.so
 LoadModule php5_module        /usr/local/Cellar/php56/5.6.29_5/libexec/apache2/libphp5.so
 LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/libphp7.so
@@ -186,7 +186,7 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 
 - 主目录索引文件配置
 
-```
+```bash
 <IfModule dir_module>
     DirectoryIndex index.php index.html
 </IfModule>
@@ -199,7 +199,7 @@ LoadModule php7_module        /usr/local/Cellar/php71/7.1.0_11/libexec/apache2/l
 - 验证 php 安装结果
   在根目录下新建 info.php,输入如下代码
 
-```
+```bash
 <?php
 phpinfo();
 ?>
@@ -211,25 +211,25 @@ phpinfo();
 
 默认 apche 服务器只有一个网站根目录，可通过配置虚拟主机，同时控制多个站点。
 
-```
+```bash
 //修改apache配置文件
 sudo vim /usr/local/etc/apache2/2.4/httpd.conf
 ```
 
 - 开启 apache 虚拟主机模块功能
 
-```
+```bash
 LoadModule vhost_alias_module libexec/apache2/mod_vhost_alias.so
 Include /private/etc/apache2/extra/httpd-vhosts.conf
 ```
 
 - 修改虚拟主机配置文件,一个 VirtualHost 配置对应一个服务站点。
 
-```
+```bash
 sudo vim /usr/local/etc/apache2/2.4/extra/httpd-vhosts.conf
 ```
 
-```
+```bash
 <VirtualHost *:80>
         DocumentRoot "/Users/gourry/Documents/mysites/boxuegu"
         ServerName bxg.com

@@ -11,7 +11,7 @@ excerpt_separator: '```'
 
 - 终端输入
 
-  ```
+  ```bash
   sudo vim /etc/apache2/httpd.conf
   ```
 
@@ -19,7 +19,7 @@ excerpt_separator: '```'
 
 - 重启 apache
 
-  ```
+  ```bash
   sudo apachectl restart
   ```
 
@@ -35,39 +35,39 @@ excerpt_separator: '```'
 
 - 登录 mysql 数据库
 
-  ```
+  ```bash
   mysql -uroot -p
   ```
 
-  ```
+  ```bash
   newpass	//输入随机生成的密码
   ```
 
 - 修改 root 密码:root
 
-  ```
+  ```bash
   mysql -uroot password root
   ```
 
 ## 配置 phpMyAdmin 管理 mysql 数据库
 
-- 下载 phpMyAdmin，下载地址：http://www.phpmyadmin.net/home_page/downloads.php
+- 下载 phpMyAdmin，下载地址：<http://www.phpmyadmin.net/home_page/downloads.php>
 
 - 解压到/Library/WebServer/Documents/，重命名文件夹名为 phpMyAdmin
 
 - 在 phpMyAdmin 目录命令行输入
 
-  ```
+  ```bash
   cp config.sample.inc.php config.inc.php
   vim config.inc.php
   ```
 
   修改 phpMyAdmin 配置文件与 mysql 数据库关联起来
 
-  ```
+  ```bash
   $cfg['blowfish_secret'] = '';//用于Cookie加密，随意的长字符串
-  $cfg['Servers'][$i]['host'] = '127.0.0.1';//MySQL守护程序做了IP绑定
+  $cfg['Servers'][$i]['host'] = '127.0.0.1';//MySQL 守护程序做了IP绑定
   ```
 
-现在可以在浏览器中输入 URL：http://localhost/phpmyadmin/
+现在可以在浏览器中输入 URL：<http://localhost/phpmyadmin/>
 通过 mysql 的 dmg 包安装会在偏好设置中配置 mysql，可以快捷启动或是关闭

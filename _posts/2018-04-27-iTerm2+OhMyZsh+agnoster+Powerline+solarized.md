@@ -9,7 +9,7 @@ excerpt_separator: '```'
 
 ## iTerm2
 
-官网地址：http://iterm2.com/
+官网地址：<http://iterm2.com/>
 
 ## zsh
 
@@ -22,13 +22,13 @@ Oh My Zsh 是基于 zsh 的一个扩展工具集，它提供了丰富的扩展�
 
 via curl
 
-```
+```bash
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
 ```
 
 via wget
 
-```
+```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 ```
 
@@ -40,7 +40,7 @@ ls ~/.oh-my-zsh/themes
 
 需要修改主题只需：
 
-```
+```bash
 vim ~/.zshrc
 ```
 
@@ -48,7 +48,7 @@ vim ~/.zshrc
 
 ## powerline
 
-```
+```bash
 git clone git@github.com:powerline/fonts.git
 cd fonts
 ./install.sh
